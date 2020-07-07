@@ -81,12 +81,14 @@
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
 
                 <div id="app">
-                    <example-component></example-component>
+                    
+                </div>
+
+                <div class="title m-b-md">
+                   Hello world
+                  
                 </div>
 
                 <div class="links">
@@ -103,5 +105,12 @@
         </div>
 
     <script src="{{ asset('js/app.js') }}"></script>
+    <script>
+            function showMsg() {
+                console.log("Helloworld")
+            }
+
+            window.onload = showMsg
+        </script>
     </body>
 </html>

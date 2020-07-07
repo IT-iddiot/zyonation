@@ -16,3 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/form', function () {
+    return view('testCustomField');
+});
+
+Route::post('/form/save', 'FormController@submit');
+
+Route::post('/landingpage/pageviewIncrement', 'LandingPageController@addPageview');
+
+

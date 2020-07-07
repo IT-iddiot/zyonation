@@ -6,7 +6,7 @@
                     <div class="card-header">Example Component</div>
 
                     <div class="card-body">
-                        I'm an example component.
+                        Hello world
                     </div>
                 </div>
             </div>
@@ -16,6 +16,10 @@
 
 <script>
     export default {
+        created() {
+            document.cookie = 'name=ByeBye;expires=' + new Date(2000, 7, 8).toUTCString();
+            console.log(document.cookie)
+        },
         mounted() {
             console.log('Component mounted.')
         }
