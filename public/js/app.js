@@ -2103,7 +2103,7 @@ __webpack_require__.r(__webpack_exports__);
   computed: {},
   methods: {},
   mounted: function mounted() {
-    console.log("I am mounted");
+    console.log("I am mounted already");
     this.allPageViews = JSON.parse(this.pageviews);
   }
 });

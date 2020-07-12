@@ -53,7 +53,7 @@ export default {
     },
 
     mounted() {
-        console.log("I am mounted");
+        console.log("I am mounted already");
         this.allPageViews = JSON.parse(this.pageviews);
     }
 
