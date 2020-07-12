@@ -16,8 +16,9 @@ class CreateLandingPagesTable extends Migration
         Schema::create('landing_pages', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
-            $table->integer('pageviews');
-            $table->integer('unique_pageviews');
+            $table->string('path')->nullable();
+            $table->integer('pageviews')->default(0);
+            $table->integer('unique_pageviews')->default(0);
             $table->timestamps();
         });
     }

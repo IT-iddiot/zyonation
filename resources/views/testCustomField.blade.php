@@ -20,20 +20,39 @@
             margin : 30px;
         }
     </style>
+    <script>
+
+        const orderArray = {
+            name : "hello",
+            price : '',
+            email : "hellow@gamil.com",
+            address : ""
+        }
+        console.log(orderArray)
+        const isNull = Object.values(orderArray).every((item) => {
+            // console.log(item)
+            
+            return item !== null;
+        })
+        // console.log(isNull);
+
+        Object.values(orderArray).forEach((item, index) => {
+            // console.log(item)
+            if(item == '' || item == null) {
+                // alert(Object.keys(orderArray)[index] + " is empty");
+            }
+        })
+        // document.cookie = "name=DarrenTer;expires=" + new Date(2030, 0, 30).toUTCString();
+        // document.getElementById('showCookie').innerText = document.cookie.split('; ');
+    </script>
 </head>
 <body>
     
     <div id="app">
-        <p id="showCookie">
-
-        </p>
         <example-component></example-component>
     </div>
 
 <script src="{{asset('js/app.js')}}"></script>
-<script>
-    document.cookie = "name=DarrenTer;expires=" + new Date(2030, 0, 30).toUTCString();
-    document.getElementById('showCookie').innerText = document.cookie.split('; ');
-</script>
+
 </body>
 </html>

@@ -107,7 +107,7 @@
     <script src="{{ asset('js/app.js') }}"></script>
     <script>
             function showMsg() {
-                console.log("Helloworld")
+                
             }
 
             window.onload = showMsg

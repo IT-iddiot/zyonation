@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('form');
 });
 
 Route::get('/form', function () {
@@ -23,6 +23,15 @@ Route::get('/form', function () {
 
 Route::post('/form/save', 'FormController@submit');
 
+Route::get('/landingpage', 'LandingPageController@allPageViews');
+
+Route::get('/landingpage/create', 'LandingPageController@newLandingPage');
+
 Route::post('/landingpage/pageviewIncrement', 'LandingPageController@addPageview');
+
+Route::get('/landingpage/getPageview/{id}', 'LandingPageController@getPageView');
+
+Route::get('/landingpage/{path}', 'LandingPageController@index');
+
 
 
