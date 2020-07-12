@@ -10,7 +10,7 @@
                 </a>
                 <div class="card-body">
                     <h6 class="mb-3">
-                        Page Views 
+                        Page Views 123 
                     </h6>
                     <h4 class="mt-1 mb-2">
                         {{ item.pageviews }}
