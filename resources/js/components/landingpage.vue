@@ -68,6 +68,7 @@ export default {
     },
 
     mounted() {
+        console.log("I am mounted");
         this.getAllPageViews();
     }
 

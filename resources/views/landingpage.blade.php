@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="{{mix('css/app.css')}}">
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
     <script>
-
         let is_unique = false;
         const lp_uid = {!! json_encode($landingpage_id) !!};
         const pathName = window.location.pathname;
