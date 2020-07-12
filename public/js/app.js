@@ -2101,11 +2101,7 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   computed: {},
-  methods: {
-    toPage: function toPage(path) {
-      window.location.href = '/landingpage/' + path;
-    }
-  },
+  methods: {},
   mounted: function mounted() {
     this.allPageViews = JSON.parse(this.pageviews);
   }
@@ -2261,7 +2257,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "landingpage",
   props: {
-    id: String
+    id: String,
+    name: String
   },
   data: function data() {
     return {
@@ -38581,14 +38578,10 @@ var render = function() {
           { key: index, staticClass: "card text-center col-md-3 p-0" },
           [
             _c(
-              "div",
+              "a",
               {
                 staticClass: "card-header",
-                on: {
-                  click: function($event) {
-                    return _vm.toPage(item.path)
-                  }
-                }
+                attrs: { href: "/landingpage/" + item.path, target: "_blank" }
               },
               [
                 _c("strong", { staticClass: "btn btn-link" }, [
@@ -38689,7 +38682,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "homepage container m-5" }, [
-    _c("h1", { staticClass: "m-3 text-center" }, [_vm._v("Home")]),
+    _c("h1", { staticClass: "m-3 text-center" }, [_vm._v(_vm._s(_vm.name))]),
     _vm._v(" "),
     _c("div", { staticClass: "row justify-content-center mt-4" }, [
       _c("div", { staticClass: "col-md-4" }, [

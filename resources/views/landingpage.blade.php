@@ -37,7 +37,7 @@
 <body>
     
     <div id="app">
-        <landingpage id="{{ $landingpage_id }}"></landingpage>
+        <landingpage id="{{ $landingpage_id }}" name="{{$landingpage_name}}"></landingpage>
     </div>
 
 <script src="{{asset('js/app.js')}}"></script>

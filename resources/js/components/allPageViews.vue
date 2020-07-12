@@ -5,9 +5,9 @@
         </h2>
         <div class="row my-5 mx-2 justify-content-between mx-auto">
             <div class="card text-center col-md-3 p-0" v-for="(item,index) in allPageViews" :key="index">
-                <div @click="toPage(item.path)" class="card-header">
+                <a :href="'/landingpage/' + item.path" target="_blank" class="card-header">
                     <strong class="btn btn-link">{{ item.name }}</strong> 
-                </div>
+                </a>
                 <div class="card-body">
                     <h6 class="mb-3">
                         Page Views 
@@ -49,9 +49,7 @@ export default {
     },
 
     methods : {
-        toPage(path) {
-            window.location.href = '/landingpage/' + path;
-        }
+
     },
 
     mounted() {

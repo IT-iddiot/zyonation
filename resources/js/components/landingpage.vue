@@ -1,6 +1,6 @@
 <template>
     <div class="homepage container m-5">
-        <h1 class="m-3 text-center">Home</h1>
+        <h1 class="m-3 text-center">{{name}}</h1>
         <div class="row justify-content-center mt-4">
             <div class="col-md-4">
                 <div class="card">
@@ -33,7 +33,8 @@ export default {
     name : "landingpage",
 
     props : {
-        id : String
+        id : String,
+        name : String
     },
 
     data() {
