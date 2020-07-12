@@ -82,12 +82,8 @@
 
             <div class="content">
 
-                <div id="app">
-                    
-                </div>
-
                 <div class="title m-b-md">
-                   Hello world
+                   WELCOME
                   
                 </div>
 

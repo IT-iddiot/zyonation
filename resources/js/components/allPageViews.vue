@@ -10,7 +10,7 @@
                 </a>
                 <div class="card-body">
                     <h6 class="mb-3">
-                        Page Views 123 
+                        Page Views 
                     </h6>
                     <h4 class="mt-1 mb-2">
                         {{ item.pageviews }}
@@ -53,6 +53,7 @@ export default {
     },
 
     mounted() {
+        console.log("I am mounted");
         this.allPageViews = JSON.parse(this.pageviews);
     }
 

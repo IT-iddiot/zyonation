@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{$landingpage_name}}</title>
-    <link rel="stylesheet" href="{{asset('css/app.css')}}">
+    <link rel="stylesheet" href="{{mix('css/app.css')}}">
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
     <script>
 
@@ -40,7 +40,7 @@
         <landingpage id="{{ $landingpage_id }}" name="{{$landingpage_name}}"></landingpage>
     </div>
 
-<script src="{{asset('js/app.js')}}"></script>
+<script src="{{mix('js/app.js')}}"></script>
 
 </body>
 </html>
