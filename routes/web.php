@@ -13,25 +13,58 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// * This is subdomain routing, must stay at the top of all routes 
+Route::domain('{subdomain}.darrenter.com')->group(function() {
+    Route::redirect('/', '/landingpage');
+});
+
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/form', function () {
-    return view('testCustomField');
+//* get the current environment 
+Route::get('/env/{message}', function($message) {
+    return App::environment() . " message : " . $message;
+})->name('env');
+
+Route::redirect('/from', '/landingpage');
+
+Route::get('/test/{anything}/hello/{any_thing?}', function($a, $b = "helloworld") {
+    return $a . " " . $b;
 });
+
+Route::view('/automation', 'automationBuilder');
+
+//* CSS tutorials 
+Route::prefix('css')->group(function() {
+
+    Route::view('/pseuodo', 'css/pseudoBeforeAfter');
+
+});
+
+//* Landing page testing
+Route::prefix('landingpage')->group(function() {
+
+    Route::get('/', 'LandingPageController@allPageViews');
+
+    Route::get('/create', 'LandingPageController@newLandingPage');
+    
+    Route::post('/pageviewIncrement', 'LandingPageController@addPageview');
+    
+    Route::get('/getPageview/{id}', 'LandingPageController@getPageView');
+    
+    Route::get('/{path}', 'LandingPageController@index');
+
+});
+
+Route::view('/form', 'welcome', ['name' => 'Darren']);
 
 Route::post('/form/save', 'FormController@submit');
 
-Route::get('/landingpage', 'LandingPageController@allPageViews');
-
-Route::get('/landingpage/create', 'LandingPageController@newLandingPage');
-
-Route::post('/landingpage/pageviewIncrement', 'LandingPageController@addPageview');
-
-Route::get('/landingpage/getPageview/{id}', 'LandingPageController@getPageView');
-
-Route::get('/landingpage/{path}', 'LandingPageController@index');
+//* Always be the last route in route.php
+Route::fallback(function() {
+    return view('errors/404');
+});
 
 
 
