@@ -40,6 +40,8 @@ Route::prefix('css')->group(function() {
 
     Route::view('/pseuodo', 'css/pseudoBeforeAfter');
 
+    Route::view('/position', 'css/position');
+
 });
 
 //* Landing page testing
