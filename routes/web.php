@@ -44,6 +44,12 @@ Route::prefix('css')->group(function() {
 
 });
 
+Route::prefix('js')->group(function() {
+
+    Route::view('/arrow', 'javascript/arrow');
+
+});
+
 //* Landing page testing
 Route::prefix('landingpage')->group(function() {
 
