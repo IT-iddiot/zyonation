@@ -47,6 +47,8 @@ Route::prefix('css')->group(function() {
 Route::prefix('js')->group(function() {
 
     Route::view('/arrow', 'javascript/arrow');
+    Route::view('/promise', 'javascript/promise');
+    Route::view('/async', 'javascript/asyncAwait');
 
 });
 
@@ -63,6 +65,10 @@ Route::prefix('landingpage')->group(function() {
     
     Route::get('/{path}', 'LandingPageController@index');
 
+});
+
+Route::get('/testFetch', function() {
+    return "I am response of fetch";
 });
 
 Route::view('/form', 'welcome', ['name' => 'Darren']);
