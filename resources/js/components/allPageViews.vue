@@ -26,15 +26,23 @@
             </div>
         </div>
 
+        <example-form />
+
     </div>
 </template>
 
 <script>
+
+
 export default {
 
     name : "page",
 
     props: ['pageviews'],
+
+    components : {
+        'example-form' : () => import('./form')
+    },
 
     data() {
         return {

@@ -22,8 +22,8 @@ window.Vue = require('vue');
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('example-form', require('./components/form.vue').default);
 
-Vue.component('all-page-views', require('./components/allPageViews.vue').default);
-Vue.component('landingpage', require('./components/landingpage.vue').default);
+// Vue.component('all-page-views', require('./components/allPageViews.vue').default);
+// Vue.component('landingpage', require('./components/landingpage.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -33,4 +33,14 @@ Vue.component('landingpage', require('./components/landingpage.vue').default);
 
 const app = new Vue({
     el: '#app',
+    components : {
+        'all-page-views' : () => import(
+            /* webpackChunkName: "js/allPageViews" */
+            './components/allPageViews.vue'
+        ),
+        'landing-page' : () => import(
+            /* webpackChunkName: "js/landingpage" */
+            './components/landingpage.vue'
+        )
+    }
 });
