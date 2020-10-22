@@ -1,9 +1,6 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
-    "/js/allPagViews.js": "/js/allPagViews.js",
-    "/vendors~js/allPagViews.js": "/vendors~js/allPagViews.js",
-    "/js/landingpage.js": "/js/landingpage.js",
     "/js/allPageViews.js": "/js/allPageViews.js",
-    "/vendors~js/allPageViews.js": "/vendors~js/allPageViews.js"
+    "/js/landingpage.js": "/js/landingpage.js"
 }

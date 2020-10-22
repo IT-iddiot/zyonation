@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f0dcbdc80776ca79d6311b8f92c5a4b5",
+    "content-hash": "32e13ced9d3c84f84001d0d65ebdc536",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -57,6 +57,91 @@
                 "stack"
             ],
             "time": "2019-12-24T22:41:47+00:00"
+        },
+        {
+            "name": "aws/aws-sdk-php",
+            "version": "3.158.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/aws/aws-sdk-php.git",
+                "reference": "a492e9aac7cba87177c06095c4e5bc9adcb1e397"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/a492e9aac7cba87177c06095c4e5bc9adcb1e397",
+                "reference": "a492e9aac7cba87177c06095c4e5bc9adcb1e397",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "ext-pcre": "*",
+                "ext-simplexml": "*",
+                "guzzlehttp/guzzle": "^5.3.3|^6.2.1|^7.0",
+                "guzzlehttp/promises": "^1.0",
+                "guzzlehttp/psr7": "^1.4.1",
+                "mtdowling/jmespath.php": "^2.5",
+                "php": ">=5.5"
+            },
+            "require-dev": {
+                "andrewsville/php-token-reflection": "^1.4",
+                "aws/aws-php-sns-message-validator": "~1.0",
+                "behat/behat": "~3.0",
+                "doctrine/cache": "~1.4",
+                "ext-dom": "*",
+                "ext-openssl": "*",
+                "ext-pcntl": "*",
+                "ext-sockets": "*",
+                "nette/neon": "^2.3",
+                "paragonie/random_compat": ">= 2",
+                "phpunit/phpunit": "^4.8.35|^5.4.3",
+                "psr/cache": "^1.0",
+                "psr/simple-cache": "^1.0",
+                "sebastian/comparator": "^1.2.3"
+            },
+            "suggest": {
+                "aws/aws-php-sns-message-validator": "To validate incoming SNS notifications",
+                "doctrine/cache": "To use the DoctrineCacheAdapter",
+                "ext-curl": "To send requests using cURL",
+                "ext-openssl": "Allows working with CloudFront private distributions and verifying received SNS messages",
+                "ext-sockets": "To use client-side monitoring"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Aws\\": "src/"
+                },
+                "files": [
+                    "src/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Amazon Web Services",
+                    "homepage": "http://aws.amazon.com"
+                }
+            ],
+            "description": "AWS SDK for PHP - Use Amazon Web Services in your PHP project",
+            "homepage": "http://aws.amazon.com/sdkforphp",
+            "keywords": [
+                "amazon",
+                "aws",
+                "cloud",
+                "dynamodb",
+                "ec2",
+                "glacier",
+                "s3",
+                "sdk"
+            ],
+            "time": "2020-10-20T18:11:49+00:00"
         },
         {
             "name": "brick/math",
@@ -511,6 +596,71 @@
             "time": "2020-04-28T08:47:37+00:00"
         },
         {
+            "name": "graham-campbell/manager",
+            "version": "v4.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/GrahamCampbell/Laravel-Manager.git",
+                "reference": "e18c29f98adb770bd890b6d66b27ba4730272599"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Manager/zipball/e18c29f98adb770bd890b6d66b27ba4730272599",
+                "reference": "e18c29f98adb770bd890b6d66b27ba4730272599",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "^5.5 || ^6.0 || ^7.0 || ^8.0",
+                "illuminate/support": "^5.5 || ^6.0 || ^7.0 || ^8.0",
+                "php": "^7.1.3 || ^8.0"
+            },
+            "require-dev": {
+                "graham-campbell/analyzer": "^2.4 || ^3.0",
+                "graham-campbell/testbench-core": "^3.2",
+                "mockery/mockery": "^1.3.1",
+                "phpunit/phpunit": "^6.5 || ^7.5 || ^8.4 || ^9.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "GrahamCampbell\\Manager\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Graham Campbell",
+                    "email": "graham@alt-three.com"
+                }
+            ],
+            "description": "Manager Provides Some Manager Functionality For Laravel",
+            "keywords": [
+                "Graham Campbell",
+                "GrahamCampbell",
+                "Laravel Manager",
+                "Laravel-Manager",
+                "connector",
+                "framework",
+                "interface",
+                "laravel",
+                "manager"
+            ],
+            "funding": [
+                {
+                    "url": "https://github.com/GrahamCampbell",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/graham-campbell/manager",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-07-25T18:02:52+00:00"
+        },
+        {
             "name": "guzzlehttp/guzzle",
             "version": "6.5.3",
             "source": {
@@ -698,6 +848,73 @@
                 "url"
             ],
             "time": "2019-07-01T23:21:34+00:00"
+        },
+        {
+            "name": "hashids/hashids",
+            "version": "4.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vinkla/hashids.git",
+                "reference": "43bb2407f16a631f0128f47bcb67ff986c63dde2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vinkla/hashids/zipball/43bb2407f16a631f0128f47bcb67ff986c63dde2",
+                "reference": "43bb2407f16a631f0128f47bcb67ff986c63dde2",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "php": "^7.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.0"
+            },
+            "suggest": {
+                "ext-bcmath": "Required to use BC Math arbitrary precision mathematics (*).",
+                "ext-gmp": "Required to use GNU multiple precision mathematics (*)."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Hashids\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ivan Akimov",
+                    "email": "ivan@barreleye.com",
+                    "homepage": "https://twitter.com/IvanAkimov"
+                },
+                {
+                    "name": "Vincent Klaiber",
+                    "email": "hello@doubledip.se",
+                    "homepage": "https://doubledip.se"
+                }
+            ],
+            "description": "Generate short, unique, non-sequential ids (like YouTube and Bitly) from numbers",
+            "homepage": "http://hashids.org/php",
+            "keywords": [
+                "bitly",
+                "decode",
+                "encode",
+                "hash",
+                "hashid",
+                "hashids",
+                "ids",
+                "obfuscate",
+                "youtube"
+            ],
+            "time": "2019-04-03T13:40:29+00:00"
         },
         {
             "name": "laravel/framework",
@@ -1129,6 +1346,53 @@
             "time": "2020-05-12T20:33:44+00:00"
         },
         {
+            "name": "league/flysystem-aws-s3-v3",
+            "version": "1.0.29",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/flysystem-aws-s3-v3.git",
+                "reference": "4e25cc0582a36a786c31115e419c6e40498f6972"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/flysystem-aws-s3-v3/zipball/4e25cc0582a36a786c31115e419c6e40498f6972",
+                "reference": "4e25cc0582a36a786c31115e419c6e40498f6972",
+                "shasum": ""
+            },
+            "require": {
+                "aws/aws-sdk-php": "^3.20.0",
+                "league/flysystem": "^1.0.40",
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "henrikbjorn/phpspec-code-coverage": "~1.0.1",
+                "phpspec/phpspec": "^2.0.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\Flysystem\\AwsS3v3\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Frank de Jonge",
+                    "email": "info@frenky.net"
+                }
+            ],
+            "description": "Flysystem adapter for the AWS S3 SDK v3.x",
+            "time": "2020-10-08T18:58:37+00:00"
+        },
+        {
             "name": "monolog/monolog",
             "version": "2.0.2",
             "source": {
@@ -1208,6 +1472,63 @@
                 "psr-3"
             ],
             "time": "2019-12-20T14:22:59+00:00"
+        },
+        {
+            "name": "mtdowling/jmespath.php",
+            "version": "2.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jmespath/jmespath.php.git",
+                "reference": "42dae2cbd13154083ca6d70099692fef8ca84bfb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jmespath/jmespath.php/zipball/42dae2cbd13154083ca6d70099692fef8ca84bfb",
+                "reference": "42dae2cbd13154083ca6d70099692fef8ca84bfb",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.4 || ^7.0 || ^8.0",
+                "symfony/polyfill-mbstring": "^1.17"
+            },
+            "require-dev": {
+                "composer/xdebug-handler": "^1.4",
+                "phpunit/phpunit": "^4.8.36 || ^7.5.15"
+            },
+            "bin": [
+                "bin/jp.php"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.6-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "JmesPath\\": "src/"
+                },
+                "files": [
+                    "src/JmesPath.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                }
+            ],
+            "description": "Declaratively specify how to extract elements from a JSON document",
+            "keywords": [
+                "json",
+                "jsonpath"
+            ],
+            "time": "2020-07-31T21:01:56+00:00"
         },
         {
             "name": "nesbot/carbon",
@@ -3374,6 +3695,70 @@
             "time": "2019-10-24T08:53:34+00:00"
         },
         {
+            "name": "vinkla/hashids",
+            "version": "8.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vinkla/laravel-hashids.git",
+                "reference": "ecf5534731dbd476e52859b3a6ab265f29ebade7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vinkla/laravel-hashids/zipball/ecf5534731dbd476e52859b3a6ab265f29ebade7",
+                "reference": "ecf5534731dbd476e52859b3a6ab265f29ebade7",
+                "shasum": ""
+            },
+            "require": {
+                "graham-campbell/manager": "^4.4",
+                "hashids/hashids": "^4.0",
+                "illuminate/contracts": "^7.0",
+                "illuminate/support": "^7.0",
+                "php": "^7.2.5"
+            },
+            "require-dev": {
+                "graham-campbell/analyzer": "^3.0",
+                "graham-campbell/testbench": "^5.4",
+                "mockery/mockery": "^1.3",
+                "phpunit/phpunit": "^8.5 || ^9.0",
+                "squizlabs/php_codesniffer": "^3.5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "8.1-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Vinkla\\Hashids\\HashidsServiceProvider"
+                    ],
+                    "aliases": {
+                        "Hashids": "Vinkla\\Hashids\\Facades\\Hashids"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Vinkla\\Hashids\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Vincent Klaiber",
+                    "email": "hello@doubledip.se"
+                }
+            ],
+            "description": "A Hashids bridge for Laravel",
+            "keywords": [
+                "hashids",
+                "laravel"
+            ],
+            "time": "2020-03-10T08:21:07+00:00"
+        },
+        {
             "name": "vlucas/phpdotenv",
             "version": "v4.1.5",
             "source": {
@@ -4618,6 +5003,7 @@
             "keywords": [
                 "tokenizer"
             ],
+            "abandoned": true,
             "time": "2019-09-17T06:23:10+00:00"
         },
         {
@@ -5484,5 +5870,6 @@
     "platform": {
         "php": "^7.2.5"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }

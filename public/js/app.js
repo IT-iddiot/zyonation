@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"js/landingpage":"js/landingpage","vendors~js/allPageViews":"vendors~js/allPageViews","js/allPageViews":"js/allPageViews"}[chunkId]||chunkId) + ".js"
+/******/ 		return __webpack_require__.p + "" + ({"js/allPageViews":"js/allPageViews","js/landingpage":"js/landingpage"}[chunkId]||chunkId) + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -50122,7 +50122,7 @@ var app = new Vue({
   el: '#app',
   components: {
     'all-page-views': function allPageViews() {
-      return Promise.all(/*! import() | js/allPageViews */[__webpack_require__.e("vendors~js/allPageViews"), __webpack_require__.e("js/allPageViews")]).then(__webpack_require__.bind(null, /*! ./components/allPageViews.vue */ "./resources/js/components/allPageViews.vue"));
+      return __webpack_require__.e(/*! import() | js/allPageViews */ "js/allPageViews").then(__webpack_require__.bind(null, /*! ./components/allPageViews.vue */ "./resources/js/components/allPageViews.vue"));
     },
     'landing-page': function landingPage() {
       return __webpack_require__.e(/*! import() | js/landingpage */ "js/landingpage").then(__webpack_require__.bind(null, /*! ./components/landingpage.vue */ "./resources/js/components/landingpage.vue"));
