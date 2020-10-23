@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Upload Image to Amazon S3</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <style>
 
         label {
@@ -35,62 +36,92 @@
             margin-right : 0;
         }
 
-        
+        .btn-link i {
+            color : black;
+        }
 
     </style>
 </head>
 <body>
-
-    @if(\Session::has('error'))
-        <div class="alert alert-danger m-2" role="alert">
-            {{ \Session::get('error') }}
+    <div id="app">
+        @if(\Session::has('error'))
+            <div class="alert alert-danger m-2" role="alert">
+                {{ \Session::get('error') }}
+            </div>
+        @elseif(\Session::has('success'))
+            <div class="alert alert-success m-2" role="alert">
+                {{ \Session::get('success') }}
+            </div>
+        @endif
+            
+        @if($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($$errors->all() as $error)
+                    <li> {{ $error }} </li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+        
+        <div class="container image-upload-window">
+            <form class="form-group" action="/image/store" method="POST" enctype="multipart/form-data">
+                @csrf
+                <label>Upload Image to Amazon S3</label>
+                <input type="file" name="image" class="form-control-file">
+                <button type="submit" class="btn btn-primary mt-4 mb-1">
+                    Submit Me Gua
+                </button>
+            </form>
         </div>
-    @elseif(\Session::has('success'))
-        <div class="alert alert-success m-2" role="alert">
-            {{ \Session::get('success') }}
-        </div>
-    @endif
-    
-    <div class="container image-upload-window">
-        <form class="form-group" action="/image/store" method="POST" enctype="multipart/form-data">
-            @csrf
-            <label>Upload Image to Amazon S3</label>
-            <input type="file" name="image" class="form-control-file">
-            <button type="submit" class="btn btn-primary mt-4 mb-1">
-                Submit Me Gua
-            </button>
-        </form>
-    </div>
 
-    <div class="container">
-        <div class="row justify-content-between">
-            @foreach($images as $image)
-                <div class="card img-card">
-                    <img class="card-img-top" src="{{ $image->url }}" style="max-height : 150px; object-fit : cover">
-                    <div class="card-body">
-                        <p>
-                            <span class="font-weight-bold">Size : </span>
-                            <span>{{ $image->size }}</span>
-                        </p>
-                        <p>
-                            <span class="font-weight-bold">Width : </span>
-                            <span>{{ $image->width }}</span>
-                        </p>
-                        <p>
-                            <span class="font-weight-bold">Height : </span>
-                            <span>{{ $image->height }}</span>
-                        </p>
-                        <a class="btn btn-primary" href="{{ $image->url }}" target="_blank"> 
-                            View
-                        </a> 
-                        <a href="/image/download/{{ $image->id }}" class="btn btn-secondary ml-2" >
-                            Download
-                        </a>
+        <div class="container">
+            <div class="row justify-content-between">
+                @foreach($images as $image)
+                    <div class="card img-card">
+                        <img class="card-img-top" src="{{ $image->s3_webp_url }}" style="height : 150px; object-fit : cover">
+                        <div class="card-body">
+                            <p>
+                                <span class="font-weight-bold">Size : </span>
+                                <span>{{ $image->size }} KB</span>
+                            </p>
+                            <p>
+                                <span class="font-weight-bold">Width : </span>
+                                <span>{{ $image->width }}</span>
+                            </p>
+                            <p>
+                                <span class="font-weight-bold">Height : </span>
+                                <span>{{ $image->height }}</span>
+                            </p>
+                            <div class="d-flex">
+                                <a class="btn btn-link" href="{{ $image->s3_webp_url }}" target="_blank" data-toggle="tooltip" data-placement="top" title="View"> 
+                                    <i class="far fa-eye"></i>
+                                </a> 
+                                <form action="/image/download/{{ $image->id }}" method="post">
+                                    @csrf
+                                    <button type="submit" class="btn btn-link" data-toggle="tooltip" data-placement="top" title="Download">
+                                        <i class="fas fa-cloud-download-alt"></i>
+                                    </button>
+                                </form>
+                                <form action="/image/delete/{{ $image->id }}" method="post">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit" class="btn btn-link" data-toggle="tooltip" data-placement="top" title="Delete">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            @endforeach
+                @endforeach
+            </div>
         </div>
     </div>
-
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
 </body>
 </html>

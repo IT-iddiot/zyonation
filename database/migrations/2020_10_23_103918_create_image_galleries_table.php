@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateImagesTable extends Migration
+class CreateImageGalleriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class CreateImagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('images', function (Blueprint $table) {
+        Schema::create('image_galleries', function (Blueprint $table) {
             $table->id();
-            $table->string('filename');
-            $table->string('url');
+            $table->string('original_name');
+            $table->string('s3_name');
+            $table->string('s3_url');
+            $table->string('s3_webp_url');
             $table->integer('size');
             $table->integer('width');
             $table->integer('height');
@@ -31,6 +33,6 @@ class CreateImagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('images');
+        Schema::dropIfExists('image_galleries');
     }
 }
