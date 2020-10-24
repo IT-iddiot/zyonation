@@ -14,9 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 // * This is subdomain routing, must stay at the top of all routes 
-Route::domain('{subdomain}.darrenter.com')->group(function() {
-    Route::redirect('/', '/landingpage');
-});
+// Route::domain('{subdomain}.darrenter.com')->group(function() {
+//     Route::get('/', function ($subdomain) {
+//         dd("Welcome : " . $subdomain);
+//     });
+// });
 
 Route::get('/', function () {
     return view('welcome');
@@ -39,16 +41,18 @@ Route::view('/automation', 'automationBuilder');
 Route::prefix('css')->group(function() {
 
     Route::view('/pseuodo', 'css/pseudoBeforeAfter');
-
     Route::view('/position', 'css/position');
+    Route::view('/sass', 'css/sass');
 
 });
 
 Route::prefix('js')->group(function() {
 
+    Route::view('/variable', 'javascript/variable');
     Route::view('/arrow', 'javascript/arrow');
     Route::view('/promise', 'javascript/promise');
     Route::view('/async', 'javascript/asyncAwait');
+    Route::view('/module', 'javascript/modules');
 
 });
 
