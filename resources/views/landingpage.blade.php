@@ -36,7 +36,7 @@
 <body>
     
     <div id="app">
-        <landingpage id="{{ $landingpage_id }}" name="{{$landingpage_name}}"></landingpage>
+        <landing-page id="{{ $landingpage_id }}" name="{{$landingpage_name}}"></landing-page>
     </div>
 
 <script src="{{mix('js/app.js')}}"></script>

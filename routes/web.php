@@ -79,6 +79,20 @@ Route::view('/form', 'welcome', ['name' => 'Darren']);
 
 Route::post('/form/save', 'FormController@submit');
 
+//* For image uploading 
+
+Route::prefix('/image')->group(function() {
+
+    Route::get('/', 'ImageGalleryController@index');
+    Route::post('/store', 'ImageGalleryController@upload');
+    Route::post('/download/{id}', 'ImageGalleryController@download');
+    Route::delete('/delete/{id}', 'ImageGalleryController@delete');
+
+    Route::post('/upload', 'ImageGalleryController@purePhpConvert');
+
+});
+
+
 //* Always be the last route in route.php
 Route::fallback(function() {
     return view('errors/404');
