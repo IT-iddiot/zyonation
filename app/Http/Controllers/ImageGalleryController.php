@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Image;
 use App\ImageGallery;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class ImageGalleryController extends Controller
 {
@@ -36,12 +36,17 @@ class ImageGalleryController extends Controller
         $filenameWithExt = $file->getClientOriginalName();
         [$webpFilename, $normalFilename] = $this->compress($file, $filenameWithExt);
 
-        Storage::disk('s3')->put('media/' . $normalFilename, file_get_contents($file), 'public');
-        Storage::disk('s3')->put('media/' . $webpFilename, Storage::get('images/' . $webpFilename), 'public');
+        Storage::disk('s3')->put('media/' . $normalFilename, 
+            file_get_contents($file), 'public'
+        );
+        Storage::disk('s3')->put('media/' . $webpFilename, 
+            file_get_contents(public_path('images/' . $webpFilename)), 'public'
+        );
         Storage::delete('images/' . $webpFilename);
         ImageGallery::create([
             'original_name' => $filenameWithExt,
-            's3_name' => $webpFilename,
+            's3_name' => $normalFilename,
+            's3_webp_name' => $webpFilename,
             's3_url' => Storage::disk('s3')->url('media/' . $normalFilename),
             's3_webp_url' => Storage::disk('s3')->url('media/' . $webpFilename),
             'size' => $imageSize,
@@ -97,13 +102,25 @@ class ImageGalleryController extends Controller
 
     public function delete(Request $request)
     {
-        // TODO delete jpg version also
         $image = ImageGallery::find($request->id);
-        Storage::disk('s3')->delete("media/" . $image->s3_name);
+        $result1 = Storage::disk('s3')->delete("media/" . $image->s3_name);
+        $result2 = Storage::disk('s3')->delete("media/" . $image->s3_webp_name);
         $image->delete();
         return redirect()->back()->with([
-            'success' => "Image deleted successfully"
+            'success' => 
+            "original image deleted successfully : " . $result1 . " webp image deleted successfully : " . $result2
         ]);
+    }
+
+    /**
+    * retrieve all the files under public > images and delete 
+    */
+    public function deleteAllPublicFiles()
+    {
+        $path = public_path('images');
+        $allFiles = File::files($path);
+        dump($allFiles);
+        File::delete($allFiles);
     }
 
     /**
