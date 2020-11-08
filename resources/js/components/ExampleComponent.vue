@@ -1,6 +1,6 @@
 <template>
     <div class="example">
-        <div class="card mx-5 my-4">
+        <div class="card">
             <div class="card-body">
                 Unfulfilled
                 <ul>
@@ -11,7 +11,7 @@
             </div>
         </div>
 
-        <div class="card mx-5 mb-4" v-for="(items, key, index) in newArray" :key="index">
+        <div class="card" v-for="(items, key, index) in newArray" :key="index">
             <div class="card-body">
                 Fulfilled #{{ orderTable_number }} - F{{ key }}
                 <ul>
@@ -22,10 +22,18 @@
             </div>
         </div>
 
+        <div>
+            <button class="btn btn-success" @click="takeSnaphot">Take snapshot</button>
+        </div>
+
+        <canvas id="canvas" width="200px" height="250px" class="mx-5 my-4 border"></canvas>
+
     </div>
 </template>
 
 <script>
+import html2canvas from 'html2canvas';
+
 export default {
 
     data() {
@@ -87,9 +95,36 @@ export default {
 
     },
 
+    methods : {
+        async takeSnaphot() {
+            const canvas = await html2canvas(document.body, { 
+                allowTaint : false,
+                windowWidth : 200,
+                windowHeight : 250,
+                canvas : document.getElementById('canvas')
+            })
+            document.body.appendChild(canvas);
+        }
+    }
+
 }
 </script>
 
-<style>
+<style lang="scss">
+
+.card {
+    margin : 1.5rem 3rem;
+    padding : 1.25rem;
+}
+
+@media screen and (max-width : 300px) {
+    .card {
+        margin : 10px 0;
+
+        &-body {
+            padding : 5px;
+        }
+    }
+}
 
 </style>
