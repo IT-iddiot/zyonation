@@ -71,6 +71,14 @@ Route::prefix('landingpage')->group(function() {
 
 });
 
+Route::prefix('laravel')->group(function() {
+    Route::view('middleware', 'laravel.middlewareForm');
+});
+
+Route::post('check/age', function() {
+    return "Hehe. You can view the content now";
+})->middleware('check.age:true,"helloworld"');
+
 Route::get('/testFetch', function() {
     return "I am response of fetch";
 });
